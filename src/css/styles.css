@@ -6,6 +6,8 @@
 */
 
 @import url('izitoast/dist/css/iziToast.css');
+@import url('simplelightbox/dist/simple-lightbox.css');
+@import url(./loader.css);
 
 
 :root {
@@ -68,7 +70,7 @@ img {
   display: flex;
   gap: 8px;
   width: 371px;
-  margin: 75px auto 32px auto;
+  margin: 75px auto 10px auto;
   justify-content: start;
   align-items: center;
   padding: 0;
@@ -99,7 +101,7 @@ font: 500 16px / 150% var(--font-family);
   display: flex;
   flex-wrap: wrap;
   max-width: 1128px;
-  margin: 0 auto 0 auto;
+  margin: 22px auto 0 auto;
   gap: 20px;
   justify-content: center;
   align-items: center;

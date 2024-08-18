@@ -2,7 +2,7 @@ export default function createCard(imgData) {
     return `
     <li class="card-list-item">
     <a class="card-list-link" href="${imgData.largeImageURL}">
-        <img src="${imgData.webformatURL}" alt="${imgData.tags} class="card-list-item-img" />
+        <img src="${imgData.webformatURL}" alt="${imgData.tags}" class="card-list-item-img" />
         </a>
         <ul class="card-item-inside-list">
           <li class="inside-list-item">
