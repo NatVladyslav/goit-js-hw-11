@@ -1,4 +1,4 @@
-export default function createCard(imgData) {
+export function createCard (imgData) {
     return `
     <li class="card-list-item">
     <a class="card-list-link" href="${imgData.largeImageURL}">
@@ -25,3 +25,13 @@ export default function createCard(imgData) {
     </li>
     `
 }
+
+
+
+
+  
+
+
+
+
+

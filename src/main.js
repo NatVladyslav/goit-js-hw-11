@@ -1,12 +1,10 @@
-import { fetchRequest } from "./fetchApi";
+import { fetchRequest } from "./js/pixabay-api";
+import { createCard } from "./js/render-functions";
 import iziToast from "izitoast";
-import { simpleLightbox } from "./simpleLightbox";
-import createImgCard from "./createCard";
+import SimpleLightbox from "simplelightbox";
 const searchForm = document.querySelector(".search-form");
 const cardsList = document.querySelector(".gallery");
 const loader = document.querySelector(".loader");
-
-
 
 const onSearchFormSubmit = (event) => {
 loader.classList.add("is-open")
@@ -15,7 +13,6 @@ loader.classList.add("is-open")
     const searchValue = searchForm.elements.user_query.value;
     fetchRequest(searchValue)
         .then((data) => {
-            console.log(data);
             if (data.hits.length === 0) {
                 iziToast.info({
                     message: "Sorry, there are no images matching your search query. Please try again!",
@@ -26,24 +23,21 @@ loader.classList.add("is-open")
                 })
             }
             let info = data.hits.map(imgInfo =>
-                createImgCard(imgInfo)).join("");
+                createCard(imgInfo)).join("");
             cardsList.innerHTML = info;
             loader.classList.remove("is-open");
-            const link = document.querySelector(".gallery li a");
-            simpleLightbox(link);
+            let gallery = new SimpleLightbox(".gallery li a", {
+  captions: true, 
+  captionClass: "style-caption",
+  captionsData: 'alt', 
+  captionDelay: 250, 
+  disableRightClick: true,
+  });
+  gallery.refresh();
         })
         .catch((err) => {
             console.log(err);
         })
     searchForm.reset();
 };
-
 searchForm.addEventListener("submit", onSearchFormSubmit);
-
-
-  
-
-
-
-
-
