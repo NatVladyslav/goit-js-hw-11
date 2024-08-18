@@ -1,29 +1,27 @@
-export default function createImgCard() {
+export default function createCard(imgData) {
     return `
-    <li>
-        <img src="" alt="" />
-        <ul>
-          <li>
+    <li class="card-list-item">
+    <a class="card-list-link" href="${imgData.largeImageURL}">
+        <img src="${imgData.webformatURL}" alt="${imgData.tags} class="card-list-item-img" />
+        </a>
+        <ul class="card-item-inside-list">
+          <li class="inside-list-item">
             <h3>Likes</h3>
-            <p>info:</p>
+            <p>${imgData.likes}</p>
           </li>
-          <li>
+          <li class="inside-list-item">
             <h3>Views</h3>
-            <p>info:</p>
+            <p>${imgData.views}</p>
           </li>
-          <li>
+          <li class="inside-list-item">
             <h3>Comments</h3>
-            <p>info:</p>
+            <p>${imgData.comments}</p>
           </li>
-          <li>
+          <li class="inside-list-item">
             <h3>Downloads</h3>
-            <p>info:</p>
+            <p>${imgData.downloads}</p>
           </li>
         </ul>
     </li>
     `
-}
-export const cardArr = [];
-for (let i = 0; i < 4; i++){
-    cardArr[i] = createImgCard();
 }

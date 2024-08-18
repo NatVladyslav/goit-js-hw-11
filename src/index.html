@@ -5,17 +5,26 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>goit-js-hw-11</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <form action="submit" class="search-form">
-      <label for="form-input">Enter the photo name</label>
-      <div class="form-div">
-        <input id="form-input" type="text" required />
-        <button type="submit" class="submit-button">Submit</button>
-      </div>
+      <input
+        id="form-input"
+        type="text"
+        name="user_query"
+        placeholder="Search images"
+      />
+      <button type="submit" class="submit-button">Submit</button>
     </form>
-    <ul class="img-list"></ul>
-    <script type="module" src="./main.js" defer></script>
+    <!-- <span class="preloader is-open"></span> -->
+    <ul class="gallery"></ul>
+    <script type="module" src="./js/render-function.js" defer></script>
   </body>
 </html>

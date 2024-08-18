@@ -1,17 +1,21 @@
-const keyAPI = "45468562-3d934deccae668c7d7f46b2f1";
-const urlAPI = `https://pixabay.com/api/?key=${keyAPI}&q=${searchElValue}&image_type=photo`;
+const baseURL = 'https://pixabay.com';
 
-const searchElValue = "cat"
+export const fetchRequest = (value) => {
 
-fetch(urlAPI)
+const urlOptions = new URLSearchParams({
+    key: "45468562-3d934deccae668c7d7f46b2f1",
+    q: value,
+    image_type: 'photo',
+    orientation: 'horizontal',
+    safesearch: true,
+});
+    
+    console.log(`${baseURL}/api/?${urlOptions}`);
+   return fetch(`${baseURL}/api/?${urlOptions}`)
     .then((resolve) => {
         if (!resolve.ok) {
             throw new Error("Error!")
         }
-        return resolve.join();
-    }).then((data) => {
-        
+        return resolve.json();
     })
-    .catch((err) => {
-        console.log(err);
-    })
+}
